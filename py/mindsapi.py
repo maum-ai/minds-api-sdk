@@ -1,16 +1,27 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+"""
 import requests
 import json
 import os
+import mindsapi_env as env
+
+__author__ = "Hoon Paek, Hyungjoo Lee"
+__copyright__ = "Copyright 2017, The MindsAPI Project"
+__credits__ = []
+__license__ = "GPL"
+__version__ = "0.1.0"
+__maintainer__ = "Hoon Paek, Hyungjoo Lee"
+__email__ = "mindsapi@mindslab.ai"
+__status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-API_FRONT_URL = "http://127.0.0.1:8000/api/stt/"
-# API_FRONT_URL = "http://35.162.66.180/api/stt/"
-MINDS_API_ID = "minds_api_id"
-MINDS_API_KEY = "minds_api_key"
 
 
-class AudioFileSttClient(object):
+class SttFileClient(object):
+    """Class for file-based STT client
+    """
 
     def __init__(self, ID=None, key=None, lang=None, level=None, sampling=None):
         self.version = STT_VERSION
@@ -44,9 +55,13 @@ class AudioFileSttClient(object):
         return self.lang, self.level, self.sampling
 
     def CheckAvailableSttModels(self, _print=True):
+        """Check available STT models from Minds API service.
+        :param _print:
+        :return:
+        """
         data = {'cmd': 'getSttModels', 'ID': self.ID, 'key': self.key}
         files = {}
-        r = requests.post(API_FRONT_URL, files=files, data=data)
+        r = requests.post(env.API_FRONT_URL, files=files, data=data)
         if r.status_code == 200:
             r_dict = json.loads(r.text)
             status = r_dict['status']
@@ -61,13 +76,18 @@ class AudioFileSttClient(object):
             return 'Fail', 'Error code : ' + r.status_code
 
     def RunFileStt(self, audioFilename, _print=True):
+        """Request file-based STT to Minds API service.
+        :param audioFilename:
+        :param _print:
+        :return:
+        """
         if not os.path.isfile(audioFilename):
             return 'Fail', 'File not found'
 
         data = {'cmd': 'runFileStt', 'lang': self.lang, 'sampling': self.sampling, 'level': self.level, 'ID': self.ID,
                 'key': self.key}
         files = {'file': open(audioFilename, 'rb')}
-        r = requests.post(API_FRONT_URL, data=data, files=files)
+        r = requests.post(env.API_FRONT_URL, data=data, files=files)
         if r.status_code == 200:
             r_dict = json.loads(r.text)
             if _print:
@@ -77,14 +97,17 @@ class AudioFileSttClient(object):
             return 'Fail', str(r.status_code)
 
 
-def test():
+def self_test():
+    """Self test code
+    :return:
+    """
 
-    stt = AudioFileSttClient()
+    stt = SttFileClient()
 
-    stt.putID(MINDS_API_ID)
+    stt.putID(env.MINDS_API_ID)
     print("\n # ID  : " + stt.getID())
 
-    stt.putKey(MINDS_API_KEY)
+    stt.putKey(env.MINDS_API_KEY)
     print("\n # Key : " +  stt.getKey())
 
     status, data = stt.CheckAvailableSttModels(_print=False)
@@ -109,5 +132,4 @@ def test():
 
 
 if __name__ == "__main__":
-
-    test()
+    self_test()
