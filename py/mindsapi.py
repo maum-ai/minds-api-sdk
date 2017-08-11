@@ -5,7 +5,8 @@
 import requests
 import json
 import os
-import mindsapi_env as env
+
+from mindsapi_env import *
 
 __author__ = "Hoon Paek, Hyungjoo Lee"
 __copyright__ = "Copyright 2017, The MindsAPI Project"
@@ -17,10 +18,6 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-
-# API_FRONT_URL = "http://127.0.0.1/api/"
-MINDS_API_ID = env.MINDS_API_ID
-MINDS_API_KEY = env.MINDS_API_KEY
 
 
 class SttFileClient(object):
@@ -34,7 +31,7 @@ class SttFileClient(object):
         self.lang = lang
         self.level = level
         self.sampling = sampling
-        self.sttUrl = env.API_FRONT_URL + "stt/"
+        self.sttUrl = API_FRONT_URL + "stt/"
 
     def __version__(self):
         return self.version
@@ -102,7 +99,7 @@ class SttFileClient(object):
             return 'Fail', str(r.status_code)
 
 
-def self_test():
+def self_test(filename):
     """Self test code
     :return:
     """
@@ -129,7 +126,7 @@ def self_test():
     sttModel = stt.getSttModel()
     print("\n # STT Model: {}-{}-{}".format(sttModel[1], sttModel[0], sttModel[2]))
 
-    status, data = stt.RunFileStt('8k.pcm', _print=False)
+    status, data = stt.RunFileStt(filename, _print=False)
 
     print("\n # RunFileStt - " + status + " : " + data)
 
@@ -137,4 +134,6 @@ def self_test():
 
 
 if __name__ == "__main__":
-    self_test()
+    self_test('../audio/weather-8k.pcm')
+    self_test('../audio/hello-8k.wav')
+    self_test('../audio/hello.mp3')
