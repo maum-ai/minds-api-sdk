@@ -12,7 +12,6 @@ __maintainer__ = "Hoon Paek, Hyungjoo Lee"
 __email__ = "mindsapi@mindslab.ai"
 __status__ = "Alpha"
 
-API_FRONT_URL = "http://127.0.0.1:8000/api/stt/"
-# API_FRONT_URL = "http://35.162.66.180/api/stt/"
+API_FRONT_URL = "http://35.162.66.180/api/"
 MINDS_API_ID = "minds_api_service_client_id"
 MINDS_API_KEY = "minds_api_service_client_key"

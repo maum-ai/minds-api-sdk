@@ -18,6 +18,10 @@ __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
 
+# API_FRONT_URL = "http://127.0.0.1/api/"
+MINDS_API_ID = env.MINDS_API_ID
+MINDS_API_KEY = env.MINDS_API_KEY
+
 
 class SttFileClient(object):
     """Class for file-based STT client
@@ -30,6 +34,7 @@ class SttFileClient(object):
         self.lang = lang
         self.level = level
         self.sampling = sampling
+        self.sttUrl = env.API_FRONT_URL + "stt/"
 
     def __version__(self):
         return self.version
@@ -61,7 +66,7 @@ class SttFileClient(object):
         """
         data = {'cmd': 'getSttModels', 'ID': self.ID, 'key': self.key}
         files = {}
-        r = requests.post(env.API_FRONT_URL, files=files, data=data)
+        r = requests.post(self.sttUrl, files=files, data=data)
         if r.status_code == 200:
             r_dict = json.loads(r.text)
             status = r_dict['status']
@@ -87,7 +92,7 @@ class SttFileClient(object):
         data = {'cmd': 'runFileStt', 'lang': self.lang, 'sampling': self.sampling, 'level': self.level, 'ID': self.ID,
                 'key': self.key}
         files = {'file': open(audioFilename, 'rb')}
-        r = requests.post(env.API_FRONT_URL, data=data, files=files)
+        r = requests.post(self.sttUrl, data=data, files=files)
         if r.status_code == 200:
             r_dict = json.loads(r.text)
             if _print:
@@ -104,10 +109,10 @@ def self_test():
 
     stt = SttFileClient()
 
-    stt.putID(env.MINDS_API_ID)
+    stt.putID(MINDS_API_ID)
     print("\n # ID  : " + stt.getID())
 
-    stt.putKey(env.MINDS_API_KEY)
+    stt.putKey(MINDS_API_KEY)
     print("\n # Key : " +  stt.getKey())
 
     status, data = stt.CheckAvailableSttModels(_print=False)
