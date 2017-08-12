@@ -1,13 +1,14 @@
 # SDK for *Minds API*
 
-*Minds API* gives you access to **Minds API service** o help AI-based your business.
+*Minds API* gives you access to **Minds API service** to help boost AI-based your business.
 
 ## Feature
 
-| API Service                | Status       |
+| API Service                | Status       | 
 | -------------------------- | ------------ |
 | Korean speech recognition  | Support      |
 | English speech recognition | Coming soon  |
+
 
 | Dev Platform  | Status       |
 | ------------- | ------------ |
@@ -36,5 +37,6 @@
 2. You will be contacted by Minds API service operator to discuss about how to help boost your business though Minds API service.
 3. Your ID and key would be delivered to you via e-mail.  
    Please **NEVER** disclose your ID and key to anyone unrelated.
-4. Clone this repository.    
-5. 
+4. Clone this repository.   
+5. Choose a Minds API package according to your development platform preference.   
+   - Go to [Python environment](https://github.com/mindslab-ai/Minds_API_SDK/tree/master/py).
