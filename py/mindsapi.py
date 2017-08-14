@@ -18,7 +18,8 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-
+MINDS_API_ID="Enter your API ID"
+MINDS_API_KEY="Enter your API Key"
 
 class SttFileClient(object):
     """Class for file-based STT client
