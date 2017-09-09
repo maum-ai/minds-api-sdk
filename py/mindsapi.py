@@ -19,8 +19,7 @@ __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
 MINDS_API_ID  = 'Enter your MindsAPI ID'
-MINDS_API_KEY = 'Enter your Minds API key'
-
+MINDS_API_KEY = 'Enter your MindsAPI key'
 
 class SttFileClient(object):
     """Class for file-based STT client
