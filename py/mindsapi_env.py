@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 """MindsAPI environment
 """
-API_FRONT_URL = "http://35.162.66.180/api/"
+API_FRONT_URL = "https://mindsapi.mindslab.ai/api/"

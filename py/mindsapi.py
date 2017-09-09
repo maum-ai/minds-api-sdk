@@ -18,6 +18,8 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
+MINDS_API_ID  = 'Enter your MindsAPI ID'
+MINDS_API_KEY = 'Enter your Minds API key'
 
 
 class SttFileClient(object):
@@ -99,7 +101,7 @@ class SttFileClient(object):
             return 'Fail', str(r.status_code)
 
 
-def self_test(filename):
+def self_test(filename, model):
     """Self test code
     :return:
     """
@@ -121,8 +123,8 @@ def self_test(filename):
         print(" > " + data)
         return
 
-    sttModel = data['sttModels'][0]
-    stt.putSttModel(lang=sttModel['lang'], level=sttModel['level'], sampling=sttModel['sampling'])
+    attrModel = model.split('-')
+    stt.putSttModel(lang=attrModel[1], level=attrModel[0], sampling=attrModel[2])
     sttModel = stt.getSttModel()
     print("\n # STT Model: {}-{}-{}".format(sttModel[1], sttModel[0], sttModel[2]))
 
@@ -134,6 +136,6 @@ def self_test(filename):
 
 
 if __name__ == "__main__":
-    self_test('../audio/weather-8k.pcm')
-    self_test('../audio/hello-8k.wav')
-    self_test('../audio/hello.mp3')
+    #self_test('../audio/weather-8k.pcm')
+    #self_test('../audio/hello-8k.wav')
+    self_test('../audio/hello.mp3', 'baseline-kor-8000')
