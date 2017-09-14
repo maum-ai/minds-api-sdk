@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Minds API</title>
+    <style>
+        input {
+            width: 400px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1>API TEST!!</h1>
+    <br/>
+    <form action="http://127.0.0.1:8000/api/stt/" method="post" enctype="multipart/form-data">
+        <h3>STT file test</h3>
+        <div>
+            <label>ID : <input type="text" id="ID" name="ID" value="minds-api-service-client-id" /></label>
+        </div>
+        <div>
+            <label>key : <input type="text" id="key" name="key" value="minds-api-service-client-key" /></label>
+        </div>
+        <div>
+            <label>lang : <input type="text" id="lang" name="lang" value="kor" /></label>
+        </div>
+        <div>
+            <label>level : <input type="text" id="level" name="level" value="baseline" /></label>
+        </div>
+        <div>
+            <label>sampling : <input type="text" id="sampling" name="sampling" value="8000" /></label>
+        </div>
+        <div>
+            <label>cmd : <input type="text" id="cmd" name="cmd" value="runFileStt" /></label>
+        </div>
+        <div style="margin-top: 20px;">
+            <input type="file" id="file" name="file"/>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</body>
+</html>
