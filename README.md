@@ -2,33 +2,33 @@
 
 *Minds API* gives you access to **Minds API service** to help boost AI-based your business.
 
-## Feature
+## API Services
+- Korean Speech Recognition
+- English Speech Recognition
+- Korean Natural Language Processing 
 
-| API Service                | Status       | 
-| -------------------------- | ------------ |
-| Korean speech recognition  | Support      |
-| English speech recognition | Coming soon  |
+## Korean Speech Recognition
 
+|     Type      |      Input type     | Status       | 
+| ------------- | ------------------- | ------------ |
+| baseline, 8K  | audio file(wav/mp3) | Support      |
+| baseline, 16K | audio file(wav/mp3) | Support      |
 
-| Dev Platform  | Status       |
-| ------------- | ------------ |
-| Python        | Support      |
-| Javscript     | Coming soon  |
+## English Speech Recognition
+- Coming Soon.
 
-## Speech recognition
-### Feature
+## Korean Natural Language Processing
+- Comming Soon.
 
-| Input audio format  | Status       |
-| ------------------- | ------------ |
-| wav file            | Support      |
-| mp3 file            | Support      |
-| wav streaming       | Planned      |
-| mp3 streaming       | Planned      |
+## Development Platform
 
-| Trained models      | Status      |
-| ------------------- | ----------- |
-| baseline-kor-8000   | Support     |
-| baseline-kor-16000  | Coming soon |
+| Dev Platform  |    Status   |
+| ------------- | ----------- |
+| Python        | Support     |
+| Web           | Support     |
+| Javscript     | Support     |
+| Java          | Coming soon |
+
 
 ## Get Started with Minds API SDK
 1. Send e-mail to minds-api-service@mindslab.ai to request Minds API service.  
