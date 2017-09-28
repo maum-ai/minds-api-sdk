@@ -5,7 +5,6 @@
 import requests
 import json
 import os
-test
 
 from mindsapi_env import *
 
@@ -19,8 +18,8 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-MINDS_API_ID  = 'Enter your MindsAPI ID'
-MINDS_API_KEY = 'Enter your MindsAPI key'
+MINDS_API_ID  = 'Minds API Service ID'
+MINDS_API_KEY = 'Minds API Service Key'
 
 class SttFileClient(object):
     """Class for file-based STT client
@@ -139,3 +138,4 @@ if __name__ == "__main__":
     #self_test('../audio/weather-8k.pcm')
     #self_test('../audio/hello-8k.wav')
     self_test('../audio/hello.mp3', 'baseline-kor-8000')
+    self_test('../audio/hello.mp3', 'baseline-kor-16000')
