@@ -18,8 +18,13 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-MINDS_API_ID  = 'Minds API Service ID'
-MINDS_API_KEY = 'Minds API Service Key'
+# MINDS_API_ID  = 'Minds API Service ID'
+# MINDS_API_KEY = 'Minds API Service Key'
+
+# client : golch
+MINDS_API_ID  = '8872C7F7C41B594089442DED1A884EB9'
+MINDS_API_KEY = 'efc6f14438a34456b60dcee034cf9dbe'
+
 
 class SttFileClient(object):
     """Class for file-based STT client
@@ -76,7 +81,7 @@ class SttFileClient(object):
                 print(json.dumps(data, indent=4, sort_keys=True))
             return status, data
         else:
-            return 'Fail', 'Error code : ' + r.status_code
+            return 'Fail', 'Error code : ' + str(r.status_code)
 
     def RunFileStt(self, audioFilename, _print=True):
         """Request file-based STT to Minds API service.
@@ -137,5 +142,6 @@ def self_test(filename, model):
 if __name__ == "__main__":
     #self_test('../audio/weather-8k.pcm')
     #self_test('../audio/hello-8k.wav')
-    self_test('../audio/hello.mp3', 'baseline-kor-8000')
-    self_test('../audio/hello.mp3', 'baseline-kor-16000')
+    # self_test('../audio/hello.mp3', 'baseline-kor-8000')
+    # self_test('../audio/weather-8k.pcm', 'baseline-kor-16000')
+    self_test('../audio/mp3-samples/Document-01.mp3', 'baseline-kor-8000')
