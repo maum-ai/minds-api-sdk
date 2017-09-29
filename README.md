@@ -5,7 +5,7 @@
 ## API Services
 - Korean Speech Recognition
 - English Speech Recognition
-- Korean Natural Language Processing 
+- Natural Language Analysis 
 
 ## Korean Speech Recognition
 
@@ -14,11 +14,13 @@
 | baseline, 8K  | audio file(wav/mp3) | Support      |
 | baseline, 16K | audio file(wav/mp3) | Support      |
 
-## English Speech Recognition
-- Coming Soon.
+- Recognition type can be extended based on the client's request.
 
-## Korean Natural Language Processing
-- Comming Soon.
+## English Speech Recognition
+- Depends on client's request.
+
+## Natural Language Analysis
+- This feature parses and analyze the input sentence.
 
 ## Development Platform
 
