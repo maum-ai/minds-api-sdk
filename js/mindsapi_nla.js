@@ -11,18 +11,18 @@ var headers = {
 
 // 요청 세부 내용
 var options = {
-    url: 'http://127.0.0.1:8000/api/stt/',
+    url: 'https://mindsapi.mindslab.ai/api/nla/',
     method:'POST',
     encoding:'utf-8',
     headers: headers,
     formData:{
         'ID': 'minds-api-service-client-id',
         'key': 'minds-api-service-client-key',
-        'lang': 'kor',
-        'level': 'baseline',
+        'level': 0,
+        'keyword_level': 0,
         'sampling': 8000,
-        'cmd': 'runFileStt',
-        'file': [fs.createReadStream('../audio/hello-8k.wav')]
+        'cmd': 'runNLA',
+        'sentence': '마인즈 API 서비스 테스트 입니다'
     }
 };
 

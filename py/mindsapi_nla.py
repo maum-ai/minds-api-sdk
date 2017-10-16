@@ -16,8 +16,8 @@ __email__ = "mindsapi@mindslab.ai"
 __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
-MINDS_API_ID  = 'Minds API Service Client ID'
-MINDS_API_KEY = 'Minds API Service Client Key'
+MINDS_API_ID  = 'minds-api-service-client-id'
+MINDS_API_KEY = 'minds-api-service-client-key'
 
 
 class NlaClient(object):

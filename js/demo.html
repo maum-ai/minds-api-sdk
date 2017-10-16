@@ -15,7 +15,7 @@
 <body>
     <h1>API TEST!!</h1>
     <br/>
-    <form action="http://127.0.0.1:8000/api/stt/" method="post" enctype="multipart/form-data">
+    <form action="https://mindsapi.mindslab.ai/api/stt/" method="post" enctype="multipart/form-data">
         <h3>STT file test</h3>
         <div>
             <label>ID : <input type="text" id="ID" name="ID" value="minds-api-service-client-id" /></label>
@@ -40,5 +40,32 @@
             <input type="submit" value="Submit" />
         </div>
     </form>
+    <br/>
+
+    <form action="https://mindsapi.mindslab.ai/api/nla/" method="post" enctype="multipart/form-data">
+        <h3>STT file test</h3>
+        <div>
+            <label>ID : <input type="text" name="ID" value="minds-api-service-client-id" /></label>
+        </div>
+        <div>
+            <label>key : <input type="text" name="key" value="minds-api-service-client-key" /></label>
+        </div>
+        <div>
+            <label>level : <input type="text" name="level" value=0 /></label>
+        </div>
+        <div>
+            <label>keyword_level : <input type="text" name="keyword_level" value=0 /></label>
+        </div>
+        <div>
+            <label>cmd : <input type="text" name="cmd" value="runNLA" /></label>
+        </div>
+        <div>
+            <label>sentence : <input type="text" name="sentence" value="마인즈 API 서비스 테스트 입니다" /></label>
+        </div>
+        <div style="margin-top: 20px;">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+
 </body>
 </html>
