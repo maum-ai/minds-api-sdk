@@ -20,9 +20,9 @@ var options = {
         'key': 'minds-api-service-client-key',
         'lang': 'kor',
         'level': 'baseline',
-        'sampling': 8000,
+        'sampling': 16000,
         'cmd': 'runFileStt',
-        'file': [fs.createReadStream('../audio/hello-8k.wav')]
+        'file': [fs.createReadStream('../audio/mp3-samples/aekukka.mp3')]
     }
 };
 

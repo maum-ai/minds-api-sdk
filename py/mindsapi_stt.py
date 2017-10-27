@@ -77,7 +77,7 @@ class SttFileClient(object):
                 print(json.dumps(data, indent=4, sort_keys=True))
             return status, data
         else:
-            return 'Fail', 'Error code : ' + r.status_code
+            return 'Fail', 'Error code : ' + str(r.status_code)
 
     def RunFileStt(self, audioFilename, _print=True):
         """Request file-based STT to Minds API service.
@@ -137,5 +137,8 @@ def self_test(filename, model):
 if __name__ == "__main__":
     #self_test('../audio/weather-8k.pcm')
     #self_test('../audio/hello-8k.wav')
-    self_test('../audio/hello.mp3', 'baseline-kor-8000')
-    self_test('../audio/hello.mp3', 'baseline-kor-16000')
+    # self_test('../audio/hello.mp3', 'baseline-kor-8000')
+    # self_test('../audio/hello.mp3', 'baseline-kor-16000')
+
+    self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-8000')
+    self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-16000')
