@@ -2,7 +2,9 @@
 
 - nodejs environment
 ```
-$ node mindsapi.js
+$ node mindsapi_stt.js
+
+$ node mindsapi_nla.js
 ```
 
 - web-page envrironment
