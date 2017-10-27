@@ -140,5 +140,5 @@ if __name__ == "__main__":
     # self_test('../audio/hello.mp3', 'baseline-kor-8000')
     # self_test('../audio/hello.mp3', 'baseline-kor-16000')
 
-    self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-8000')
+    # self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-8000')
     self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-16000')

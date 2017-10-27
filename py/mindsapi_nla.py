@@ -91,6 +91,19 @@ def self_test(sentence, level=0, keyword_level=0):
     status, data = nla.RunNla(sentence, _print=False)
 
     print("\n # RunNla - " + status + " : " + data)
+    dict = json.loads(data)
+    # print(dict['sentences'][0]['morph_evals'])
+
+    for row in dict['sentences'][0]['morph_evals']:
+        print('---')
+        print('target: ' + row['target'].encode('utf-8'))
+        print('seq: ' + str(row['seq']))
+        print('m_begin: ' + str(row['m_begin']))
+        print('result: ' + row['result'].encode('utf-8'))
+        print('m_end: ' + str(row['m_end']))
+        print('word_id: ' + str(row['word_id']))
+        print('---')
+
     pass
 
 
