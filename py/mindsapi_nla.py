@@ -4,7 +4,7 @@
 import requests
 import json
 
-from mindsapi_env import *
+from mindsapi_env import API_FRONT_URL
 
 __author__ = "Hoon Paek, Hyungjoo Lee"
 __copyright__ = "Copyright 2017, The MindsAPI Project"
@@ -96,10 +96,10 @@ def self_test(sentence, level=0, keyword_level=0):
 
     for row in dict['sentences'][0]['morph_evals']:
         print('---')
-        print('target: ' + row['target'].encode('utf-8'))
+        print('target: ' + str(row['target']))
         print('seq: ' + str(row['seq']))
         print('m_begin: ' + str(row['m_begin']))
-        print('result: ' + row['result'].encode('utf-8'))
+        print('result: ' + str(row['result']))
         print('m_end: ' + str(row['m_end']))
         print('word_id: ' + str(row['word_id']))
         print('---')

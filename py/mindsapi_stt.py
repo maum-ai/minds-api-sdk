@@ -6,7 +6,7 @@ import requests
 import json
 import os
 
-from mindsapi_env import *
+from mindsapi_env import API_FRONT_URL
 
 __author__ = "Hoon Paek, Hyungjoo Lee"
 __copyright__ = "Copyright 2017, The MindsAPI Project"
