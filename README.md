@@ -26,7 +26,7 @@
 
 | Dev Platform  |    Status   |
 | ------------- | ----------- |
-| Python        | Support     |
+| Python(2.x)   | Support     |
 | Web           | Support     |
 | Javscript     | Support     |
 | Java          | Coming soon |
