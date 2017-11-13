@@ -17,7 +17,7 @@ __status__ = "Development"      # Prototype / Development / Production
 
 STT_VERSION = "0.1.0"
 MINDS_API_ID  = 'minds-api-service-client-id'
-MINDS_API_KEY = 'minds-api-service-client-key-expired'
+MINDS_API_KEY = 'minds-api-service-client-key'
 
 
 class MrcClient(object):
