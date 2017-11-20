@@ -6,6 +6,7 @@
 - Korean Speech Recognition
 - English Speech Recognition
 - Natural Language Analysis 
+- Machine Reading Comprehension
 
 ## Korean Speech Recognition
 
@@ -21,6 +22,9 @@
 
 ## Natural Language Analysis
 - This feature parses and analyze the input sentence.
+
+## Machine Reading Comprehension
+- This feature reads and understands the reference setences, and then give the answer to your question.
 
 ## Development Platform
 
