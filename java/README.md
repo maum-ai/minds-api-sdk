@@ -30,4 +30,4 @@ Just focus on http post request send and receive response.
           HttpPost request = new HttpPost(url);
           request.setEntity(entity);
           HttpResponse response = httpClient.execute(request);
-```
+```SttApiTest.java
