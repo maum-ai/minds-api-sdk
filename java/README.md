@@ -6,8 +6,10 @@
 ```
 unicodeConvert
 ```
-This method is for response string unicode convert.
-Just focus on http post request send and receive response.
+This method is for response string unicode convert.  
+Just focus on http post request send and receive response.  
+
+
 
 
 ```java
