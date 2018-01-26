@@ -7,6 +7,7 @@
 - English Speech Recognition
 - Natural Language Analysis 
 - Machine Reading Comprehension
+- Text Analytics
 
 ## Korean Speech Recognition
 
@@ -26,6 +27,9 @@
 ## Machine Reading Comprehension
 - This feature reads and understands the reference setences, and then give the answer to your question.
 
+## Text Analytics
+- Coming soon
+
 ## Development Platform
 
 | Dev Platform  |    Status   |
@@ -33,7 +37,7 @@
 | Python(2.x)   | Support     |
 | Web           | Support     |
 | Javscript     | Support     |
-| Java          | Coming soon |
+| Java          | Support     |
 
 
 ## Get Started with Minds API SDK
