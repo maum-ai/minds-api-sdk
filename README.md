@@ -13,13 +13,21 @@
 
 |     Type      |      Input type     | Status       | 
 | ------------- | ------------------- | ------------ |
-| baseline, 8K  | audio file(wav/mp3) | Support      |
+| baseline,  8K | audio file(wav/mp3) | Support      |
 | baseline, 16K | audio file(wav/mp3) | Support      |
+| address,   8K | audio file(wav/mp3) | Support      |
 
 - Recognition type can be extended based on the client's request.
 
 ## English Speech Recognition
-- Depends on client's request.
+
+|     Type      |      Input type     | Status       | 
+| ------------- | ------------------- | ------------ |
+| baseline,  8K | audio file(wav/mp3) | Support      |
+| baseline, 16K | audio file(wav/mp3) | Support      |
+| accentKor, 8K | audio file(wav/mp3) | Support      |
+
+- Recognition type can be extended based on the client's request.
 
 ## Natural Language Analysis
 - This feature parses and analyze the input sentence.
@@ -32,12 +40,12 @@
 
 ## Development Platform
 
-| Dev Platform  |    Status   |
-| ------------- | ----------- |
-| Python(2.x)   | Support     |
-| Web           | Support     |
-| Javscript     | Support     |
-| Java          | Support     |
+| Dev Platform    |    Status   |
+| --------------- | ----------- |
+| Python(2.x/3.x) | Support     |
+| Web             | Support     |
+| Javscript       | Support     |
+| Java            | Support     |
 
 
 ## Get Started with Minds API SDK
