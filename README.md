@@ -25,7 +25,7 @@
 | ------------- | ------------------- | ------------ |
 | baseline,  8K | audio file(wav/mp3) | Support      |
 | baseline, 16K | audio file(wav/mp3) | Support      |
-| accentKor, 8K | audio file(wav/mp3) | Support      |
+| kor_accent, 8K | audio file(wav/mp3) | Support      |
 
 - Recognition type can be extended based on the client's request.
 
