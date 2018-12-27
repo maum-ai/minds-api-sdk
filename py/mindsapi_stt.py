@@ -5,7 +5,9 @@
 import requests
 import json
 import os
-
+import time
+import sys
+import argparse
 from mindsapi_env import API_FRONT_URL
 
 __author__ = "Hoon Paek, Hyungjoo Lee"
@@ -34,6 +36,7 @@ class SttFileClient(object):
         self.level = level
         self.sampling = sampling
         self.sttUrl = API_FRONT_URL + "stt/"
+        self.detailSttUrl = API_FRONT_URL + "detail_stt/"
 
     def __version__(self):
         return self.version
@@ -66,6 +69,8 @@ class SttFileClient(object):
         data = {'cmd': 'getSttModels', 'ID': self.ID, 'key': self.key}
         files = {}
         r = requests.post(self.sttUrl, files=files, data=data)
+        # r = requests.post(self.detailSttUrl, files=files, data=data)
+
         if r.status_code == 200:
             r_dict = json.loads(r.text)
             status = r_dict['status']
@@ -94,6 +99,7 @@ class SttFileClient(object):
         r = requests.post(self.sttUrl, data=data, files=files)
         if r.status_code == 200:
             r_dict = json.loads(r.text)
+            print(r.text)
             if _print:
                 print(r_dict['status'] + ' : ' + r_dict['data'])
             return r_dict['status'], r_dict['data']
@@ -101,44 +107,64 @@ class SttFileClient(object):
             return 'Fail', str(r.status_code)
 
 
-def self_test(filename, model):
+def self_test(args):
     """Self test code
     :return:
     """
+    start_time = time.time()
 
     stt = SttFileClient()
 
     stt.putID(MINDS_API_ID)
     print(" # ID  : " + stt.getID())
     stt.putKey(MINDS_API_KEY)
-    print(" # Key : " +  stt.getKey())
+    print(" # Key : " + stt.getKey())
 
-    status, data = stt.CheckAvailableSttModels(_print=False)
-    print("\n # Response : {}".format(status))
-    if status == 'Success':
-        print(" > The number of available STT models : {:d}".format(len(data['sttModels'])))
-        print(json.dumps(data, indent=4, sort_keys=True))
-    else:
-        print(" > " + data)
-        return
+#    status, data = stt.CheckAvailableSttModels(_print=False)
+#    print("\n # Response : {}".format(status))
+#    if status == 'Success':
+#        print(" > The number of available STT models : {:d}".format(len(data['sttModels'])))
+#        print(json.dumps(data, indent=4, sort_keys=True))
+#    else:
+#        print(" > " + data)
+#        return
 
-    attrModel = model.split('-')
+    attrModel = args.model.split('-')
     stt.putSttModel(lang=attrModel[1], level=attrModel[0], sampling=attrModel[2])
     sttModel = stt.getSttModel()
     print("\n # STT Model: {}-{}-{}".format(sttModel[1], sttModel[0], sttModel[2]))
 
-    status, data = stt.RunFileStt(filename, _print=False)
+    status, data = stt.RunFileStt(args.file, _print=False)
+    print('status : ', status)
+    # print("\n # RunFileStt - " + status + " : " + data)
+    print("--- %s sec ---" % (time.time() - start_time))
 
-    print("\n # RunFileStt - " + status + " : " + data)
 
-    pass
+def parse_arguments(argv):
+    """
+    Parse arguments.
+
+    :param argv:
+    :return:
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--file", required=True, help="Audio Filename")
+    parser.add_argument("--model", required=True, help="STT Model Name")
+    return parser.parse_args(argv)
 
 
 if __name__ == "__main__":
-    #self_test('../audio/weather-8k.pcm')
-    #self_test('../audio/hello-8k.wav')
-    # self_test('../audio/hello.mp3', 'baseline-kor-8000')
-    # self_test('../audio/hello.mp3', 'baseline-kor-16000')
+    if len(sys.argv) == 1:
+        sys.argv.extend(['--file', '../audio/weather-8k.pcm'])
+        sys.argv.extend(['--model', 'baseline-kor-8000'])
+        # self_test('../audio/201711723923_Addr.wav', 'address-kor-8000')
+        # self_test('../audio/mp3-samples/test.mp3', 'baseline-kor-16000')
+        # self_test('../audio/test_stt.mp3', 'mindsedu_t-eng-8000')
+        # self_test('../audio/eng_8K/101_001.wav', 'mindsedu_t-eng-8000')
+        # self_test('../audio/20181012_080942_From9450_To01031599308_s.wav', 'mindsedu_s-eng-8000')
+        # self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-16000')
+        # self_test('../audio/eng_16K/101_001.wav', 'readntalk-eng-16000')
+        # self_test('../audio/hello-16k.wav', 'baseline-kor-16000')
+        # self_test('../audio/헬로-16k.wav', 'baseline-eng-16000')
 
-    # self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-8000')
-    self_test('../audio/mp3-samples/aekukka.mp3', 'baseline-kor-16000')
+    self_test(parse_arguments(sys.argv[1:]))
