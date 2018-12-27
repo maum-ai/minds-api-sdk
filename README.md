@@ -7,18 +7,27 @@
 - English Speech Recognition
 - Natural Language Analysis 
 - Machine Reading Comprehension
+- Text Analytics
 
 ## Korean Speech Recognition
 
 |     Type      |      Input type     | Status       | 
 | ------------- | ------------------- | ------------ |
-| baseline, 8K  | audio file(wav/mp3) | Support      |
+| baseline,  8K | audio file(wav/mp3) | Support      |
 | baseline, 16K | audio file(wav/mp3) | Support      |
+| address,   8K | audio file(wav/mp3) | Support      |
 
 - Recognition type can be extended based on the client's request.
 
 ## English Speech Recognition
-- Depends on client's request.
+
+|     Type      |      Input type     | Status       | 
+| ------------- | ------------------- | ------------ |
+| baseline,  8K | audio file(wav/mp3) | Support      |
+| baseline, 16K | audio file(wav/mp3) | Support      |
+| kor_accent, 8K | audio file(wav/mp3) | Support      |
+
+- Recognition type can be extended based on the client's request.
 
 ## Natural Language Analysis
 - This feature parses and analyze the input sentence.
@@ -26,14 +35,17 @@
 ## Machine Reading Comprehension
 - This feature reads and understands the reference setences, and then give the answer to your question.
 
+## Text Analytics
+- Coming soon
+
 ## Development Platform
 
-| Dev Platform  |    Status   |
-| ------------- | ----------- |
-| Python(2.x)   | Support     |
-| Web           | Support     |
-| Javscript     | Support     |
-| Java          | Coming soon |
+| Dev Platform    |    Status   |
+| --------------- | ----------- |
+| Python(2.x/3.x) | Support     |
+| Web             | Support     |
+| Javscript       | Support     |
+| Java            | Support     |
 
 
 ## Get Started with Minds API SDK

@@ -45,7 +45,7 @@ public class SttApiTest {
             HttpEntity entity = MultipartEntityBuilder
                 .create()
                 .addTextBody("ID", "minds-api-service-client-id")
-                .addTextBody("key", "minds-api-service-client-key-expired")
+                .addTextBody("key", "minds-api-service-client-key")
                 .addTextBody("cmd", "runFileStt")
                 .addTextBody("lang", "kor")
                 .addTextBody("sampling", "16000")
