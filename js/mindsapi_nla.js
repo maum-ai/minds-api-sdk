@@ -11,13 +11,13 @@ var headers = {
 
 // 요청 세부 내용
 var options = {
-    url: 'https://mindsapi.mindslab.ai/api/nla/',
+    url: 'https://api.maum.ai/api/nla/',
     method:'POST',
     encoding:'utf-8',
     headers: headers,
     formData:{
-        'ID': 'minds-api-service-client-id',
-        'key': 'minds-api-service-client-key',
+        'ID': 'client-id',
+        'key': 'client-key',
         'level': 0,
         'keyword_level': 0,
         'sampling': 8000,
