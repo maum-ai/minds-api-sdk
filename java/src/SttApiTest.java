@@ -35,7 +35,7 @@ public class SttApiTest {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build(); //Use this instead 
 
         try {
-            String url = "https://mindsapi.mindslab.ai/api/" + "stt/";
+            String url = "https://api.maum.ai/api/" + "stt/";
             
             String path = SttApiTest.class.getResource("").getPath();//current file's absolute path
             String filePath = path + "hello-16k.wav";
@@ -44,8 +44,8 @@ public class SttApiTest {
             
             HttpEntity entity = MultipartEntityBuilder
                 .create()
-                .addTextBody("ID", "minds-api-service-client-id")
-                .addTextBody("key", "minds-api-service-client-key")
+                .addTextBody("ID", "client-id")
+                .addTextBody("key", "client-key")
                 .addTextBody("cmd", "runFileStt")
                 .addTextBody("lang", "kor")
                 .addTextBody("sampling", "16000")
